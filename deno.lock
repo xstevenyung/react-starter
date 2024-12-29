@@ -1,6 +1,8 @@
 {
   "version": "4",
   "specifiers": {
+    "npm:@conform-to/zod@*": "1.2.2_zod@3.24.1",
+    "npm:@deno/vite-plugin@^1.0.2": "1.0.2_vite@5.4.11__@types+node@20.17.10_@types+node@20.17.10",
     "npm:@react-router/dev@^7.1.1": "7.1.1_@react-router+serve@7.1.1__react-router@7.1.1___react@19.0.0___react-dom@19.0.0____react@19.0.0__express@4.21.2__typescript@5.7.2__react@19.0.0__react-dom@19.0.0___react@19.0.0_react-router@7.1.1__react@19.0.0__react-dom@19.0.0___react@19.0.0_typescript@5.7.2_vite@5.4.11__@types+node@20.17.10_@babel+core@7.26.0_react@19.0.0_react-dom@19.0.0__react@19.0.0_@types+node@20.17.10",
     "npm:@react-router/node@^7.1.1": "7.1.1_react-router@7.1.1__react@19.0.0__react-dom@19.0.0___react@19.0.0_typescript@5.7.2_react@19.0.0_react-dom@19.0.0__react@19.0.0",
     "npm:@react-router/serve@^7.1.1": "7.1.1_react-router@7.1.1__react@19.0.0__react-dom@19.0.0___react@19.0.0_express@4.21.2_typescript@5.7.2_react@19.0.0_react-dom@19.0.0__react@19.0.0",
@@ -17,7 +19,8 @@
     "npm:tailwindcss@^3.4.16": "3.4.17_postcss@8.4.49",
     "npm:typescript@^5.7.2": "5.7.2",
     "npm:vite-tsconfig-paths@^5.1.4": "5.1.4_vite@5.4.11__@types+node@20.17.10_typescript@5.7.2_@types+node@20.17.10",
-    "npm:vite@^5.4.11": "5.4.11_@types+node@20.17.10"
+    "npm:vite@^5.4.11": "5.4.11_@types+node@20.17.10",
+    "npm:zod@*": "3.24.1"
   },
   "npm": {
     "@alloc/quick-lru@5.2.0": {
@@ -246,6 +249,22 @@
       "dependencies": [
         "@babel/helper-string-parser",
         "@babel/helper-validator-identifier"
+      ]
+    },
+    "@conform-to/dom@1.2.2": {
+      "integrity": "sha512-f05EClpNP31o6lX4LYmmLqgsiTOHdGfY7z2XXK6U6rRp+EtxrkUBdrFlIGsfkf7e9AFO19h3/Cb/cXHVd1k1FA=="
+    },
+    "@conform-to/zod@1.2.2_zod@3.24.1": {
+      "integrity": "sha512-mNCzh0XsF2vhCtD8bfHYMYayEJ9dP6/KsGjmq8DFcO1ykDTNQZwfi1MIm4evGYVempSS3poYr4xZjd7cXEbtaw==",
+      "dependencies": [
+        "@conform-to/dom",
+        "zod"
+      ]
+    },
+    "@deno/vite-plugin@1.0.2_vite@5.4.11__@types+node@20.17.10_@types+node@20.17.10": {
+      "integrity": "sha512-ZaC5W1yCb1xdRURU5qHFHrxZABr1tC68tS73/YhXUUbe9nuytCV4CG/dpLxMkxS64Fs3YwcqEz2k1eAqE9W5SQ==",
+      "dependencies": [
+        "vite"
       ]
     },
     "@esbuild/aix-ppc64@0.21.5": {
@@ -2010,11 +2029,15 @@
     },
     "yaml@2.6.1": {
       "integrity": "sha512-7r0XPzioN/Q9kXBro/XPnA6kznR73DHq+GXh5ON7ZozRO6aMjbmiBuKste2wslTFkC5d1dw0GooOCepZXJ2SAg=="
+    },
+    "zod@3.24.1": {
+      "integrity": "sha512-muH7gBL9sI1nciMZV67X5fTKKBLtwpZ5VBp1vsOQzj1MhrBZ4wlVCm3gedKZWLp0Oyel8sIGfeiz54Su+OVT+A=="
     }
   },
   "workspace": {
     "packageJson": {
       "dependencies": [
+        "npm:@deno/vite-plugin@^1.0.2",
         "npm:@react-router/dev@^7.1.1",
         "npm:@react-router/node@^7.1.1",
         "npm:@react-router/serve@^7.1.1",
@@ -2033,6 +2056,14 @@
         "npm:vite-tsconfig-paths@^5.1.4",
         "npm:vite@^5.4.11"
       ]
+    },
+    "members": {
+      "packages/validation": {
+        "dependencies": [
+          "npm:@conform-to/zod@*",
+          "npm:zod@*"
+        ]
+      }
     }
   }
 }
