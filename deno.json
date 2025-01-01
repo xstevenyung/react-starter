@@ -1,3 +1,19 @@
 {
-  "workspace": ["./packages/validation"]
+  "workspace": [
+    "./packages/validation"
+  ],
+  "imports": {
+    "~/": "./app/",
+    "+types/": "./.react-router/types/app/+types/"
+  },
+  "compilerOptions": {
+    "lib": ["DOM", "DOM.Iterable", "ES2022"],
+    "types": ["node", "vite/client"],
+    "jsx": "react-jsx",
+    "verbatimModuleSyntax": true,
+    "strict": true
+  },
+  "unstable": [
+    "sloppy-imports"
+  ]
 }
