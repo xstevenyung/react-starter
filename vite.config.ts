@@ -2,7 +2,6 @@ import { reactRouter } from "@react-router/dev/vite";
 import autoprefixer from "autoprefixer";
 import tailwindcss from "tailwindcss";
 import { defineConfig } from "vite";
-import tsconfigPaths from "vite-tsconfig-paths";
 import deno from "@deno/vite-plugin";
 
 export default defineConfig({
@@ -14,5 +13,5 @@ export default defineConfig({
       plugins: [tailwindcss, autoprefixer],
     },
   },
-  plugins: [deno(), reactRouter(), tsconfigPaths()],
+  plugins: [deno(), reactRouter()],
 });
